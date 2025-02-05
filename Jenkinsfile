@@ -7,19 +7,19 @@ pipeline {
 
     stages {
 
-        stage('Build Docker Image') {
-            steps {
-                script {
-                    dockerImage = docker.build("qrgram")
-                }
-            }
-        }
+        // stage('Build Docker Image') {
+        //     steps {
+        //         script {
+        //             dockerImage = docker.build("qrgram")
+        //         }
+        //     }
+        // }
 
         stage('Run Tests') {
             steps {
                 script {
                     dockerImage.inside {
-                        sh 'pytest tests'
+                        sh 'make test'
                     }
                 }
             }
