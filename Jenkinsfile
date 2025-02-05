@@ -6,21 +6,26 @@ pipeline {
     }
 
     stages {
-
-        // stage('Build Docker Image') {
-        //     steps {
-        //         script {
-        //             dockerImage = docker.build("qrgram")
-        //         }
-        //     }
-        // }
+        stage('Initialize') {
+            steps {
+                script {
+                    sh 'make venv && make install'
+                }
+            }
+        }
 
         stage('Run Tests') {
             steps {
                 script {
-                    dockerImage.inside {
-                        sh 'make test'
-                    }
+                    sh 'make test'
+                }
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    sh 'make build'
                 }
             }
         }
@@ -28,7 +33,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    dockerImage.run('-d --name qrgram-bot')
+                    sh 'make deploy'
                 }
             }
         }
