@@ -11,11 +11,11 @@ install:
 
 build:
 	@echo "Building the project..."
-	docker build -t Mathurins030/kem_bot .
+	docker build --no-cache -t maturin/kem_bot .
 
 make deploy:
 	@echo "Deploying the project..."
-	docker run -d -p 8002:80 Mathurins030/kem_bot
+	docker run -d -p 8003:80 maturin/kem_bot
 
 serve:
 	@echo "Starting development server..."
