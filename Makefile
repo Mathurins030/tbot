@@ -15,7 +15,7 @@ build:
 
 make deploy:
 	@echo "Deploying the project..."
-	docker run -d -p 8003:80 maturin/kem_bot
+	docker run -d -p 8006:80 maturin/kem_bot
 
 serve:
 	@echo "Starting development server..."
