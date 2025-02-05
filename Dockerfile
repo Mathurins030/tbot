@@ -1,6 +1,6 @@
-FROM python:3.10
+FROM python:3.12-slim
 
-LABEL MAINTAINER=MaturinDevopsTeam
+LABEL MAINTAINER=EsgisDevopsTeam
 
 # set a directory for the app
 WORKDIR /code
