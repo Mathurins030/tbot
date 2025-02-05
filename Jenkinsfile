@@ -6,10 +6,10 @@ pipeline {
     }
 
     stages {
-        stage('Initialize') {
+        stage('Build Docker Image') {
             steps {
                 script {
-                    sh 'make venv && make install'
+                   sh 'make build'
                 }
             }
         }
@@ -17,15 +17,8 @@ pipeline {
         stage('Run Tests') {
             steps {
                 script {
-                    sh 'make test'
-                }
-            }
-        }
-
-        stage('Build Docker Image') {
-            steps {
-                script {
-                    sh 'make build'
+                    
+                        sh 'make tests'
                 }
             }
         }
@@ -33,6 +26,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
+                    
                     sh 'make deploy'
                 }
             }
