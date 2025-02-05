@@ -11,11 +11,11 @@ install:
 
 build:
 	@echo "Building the project..."
-	docker build -t hervlokossou/allmight_bot .
+	docker build -t Mathurins030/kem_bot .
 
 make deploy:
 	@echo "Deploying the project..."
-	docker run -d -p 8001:80 hervlokossou/fastapi-app
+	docker run -d -p 8002:80 Mathurins030/kem_bot
 
 serve:
 	@echo "Starting development server..."
