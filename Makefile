@@ -15,7 +15,8 @@ build:
 
 make deploy:
 	@echo "Deploying the project..."
-	docker stop -f kem_bot
+	chmod +x deploy.sh
+	./deploy.sh
 	docker run -d -p 8006:80 maturin/kem_bot
 
 serve:
