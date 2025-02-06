@@ -35,7 +35,7 @@ pipeline {
             steps {
                 script {
                     
-                        sh 'make tests'
+                        sh 'make test'
                 }
             }
         }
