@@ -5,7 +5,7 @@ pipeline {
         BOT_TOKEN = credentials('telegram-bot-token')
     }
 
-        stages {
+    stages {
         stage('Initialize') {
             steps {
                 script {
@@ -22,9 +22,7 @@ pipeline {
                 }
             }
         }
-        }
-    
-    stages {
+        
         stage('Build Docker Image') {
             steps {
                 script {
