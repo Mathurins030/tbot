@@ -4,6 +4,24 @@ pipeline {
     environment {
         BOT_TOKEN = credentials('telegram-bot-token')
     }
+
+        stages {
+        stage('Initialize') {
+            steps {
+                script {
+                    sh 'make venv && make install'
+                }
+            }
+        }
+        stage ('Inject Env') {
+            steps {
+                script {
+                    withCredentials([file(credentialsId: 'tbot-env-file', variable: 'ENV_FILE')]) {
+                        sh "cat $ENV_FILE"
+                    }
+                }
+            }
+        }
     
     stages {
         stage('Build Docker Image') {
