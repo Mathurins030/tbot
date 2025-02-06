@@ -38,24 +38,24 @@ pipeline {
             cleanWs()
         }
 
-        success {
-            echo 'This will run only if successful'
-            emailext body: 'A Succes Test Email'. recipientProviders:
-            [[$class: 'DeveloppersRecipientProvider'],
-             [$class: 'RequesterRecipientProvider']], subject: 'Test'
-        }
-        success {
-            echo 'A failed Test'
-            emailext body: 'A Failed Test Email'. recipientProviders:
-            [[$class: 'DeveloppersRecipientProvider'],
-             [$class: 'RequesterRecipientProvider']], subject: 'Test'
-        }
-        unstable {
-            echo 'This will run only if the run was marked as unstable'
-        }
-        unstable {
-            echo 'This will run only if the pipeline has changed'
-        }
+        // success {
+        //     echo 'This will run only if successful'
+        //     emailext body: 'A Succes Test Email'. recipientProviders:
+        //     [[$class: 'DeveloppersRecipientProvider'],
+        //      [$class: 'RequesterRecipientProvider']], subject: 'Test'
+        // }
+        // success {
+        //     echo 'A failed Test'
+        //     emailext body: 'A Failed Test Email'. recipientProviders:
+        //     [[$class: 'DeveloppersRecipientProvider'],
+        //      [$class: 'RequesterRecipientProvider']], subject: 'Test'
+        // }
+        // unstable {
+        //     echo 'This will run only if the run was marked as unstable'
+        // }
+        // unstable {
+        //     echo 'This will run only if the pipeline has changed'
+        // }
         
     }
         
